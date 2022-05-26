@@ -1,0 +1,13 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": false,
+  "cSpell.words": [
+    "mariadb",
+  ],
+  "cSpell.enabled": false,
+  "workbench.colorCustomizations": {
+    "[Default Dark+]": {}
+  },
+}

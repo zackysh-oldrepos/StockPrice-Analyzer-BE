@@ -1,0 +1,7 @@
+{
+  "URI": "localhost",
+  "PORT": 3306,
+  "DB": "sp-analyzer",
+  "USER": "root",
+  "PASSWORD": ""
+}
