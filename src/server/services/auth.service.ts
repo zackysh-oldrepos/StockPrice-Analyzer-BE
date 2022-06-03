@@ -87,7 +87,7 @@ export default class AuthService {
     if (
       userData.username &&
       current.username !== userData.username &&
-      (await this.userModel.findByUsername(current.username))
+      (await this.userModel.findByUsername(userData.username))
     ) {
       throw new HttpException(409, 'Username not available');
     }
