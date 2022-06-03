@@ -15,7 +15,8 @@ const errorMiddleware = (error: HttpException<any>, req: Request, res: Response,
   try {
     const status: number = error.errors ? 400 : error.status || 500;
     const message: string = error.message || 'Something went wrong';
-    const response: ErrorResponse = { status, message };
+    const data = error.data;
+    const response: ErrorResponse = { status, message, data };
 
     if (error.errors) {
       response.errors = error.errors;
@@ -27,6 +28,9 @@ const errorMiddleware = (error: HttpException<any>, req: Request, res: Response,
 
     console.log(`[${req.method}] ${req.path} >> StatusCode:: ${status}, Message:: ${message}`);
     logger.error(`[${req.method}] ${req.path} >> StatusCode:: ${status}, Message:: ${message}`);
+
+    if (status === 500) console.log(error);
+
     res.status(status).json(response);
   } catch (error) {
     next(error);

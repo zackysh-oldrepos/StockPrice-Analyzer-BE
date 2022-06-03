@@ -1,6 +1,6 @@
 import { HttpException } from '@/exceptions/HttpException';
 import { UserModel } from '@/server/models/user.model';
-import { isId, randomString } from '@/utils/util';
+import { isId, randomString, _indev } from '@/utils/util';
 import { EmailVerificationTemplate } from '@/views/email-verification/email-verification.handler';
 
 import nodemailer, { SendMailOptions } from 'nodemailer';
@@ -53,7 +53,7 @@ export default class EmailVerificationService {
       await transporter.sendMail(mailOptions);
     } catch (err) {
       console.error(err);
-      throw new HttpException(500, 'Email sending failed');
+      throw new HttpException(500, _indev() ? 'Email sending failed' : '');
     }
   }
 

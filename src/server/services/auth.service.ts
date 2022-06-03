@@ -1,9 +1,9 @@
-import { isId } from '@/utils/util';
 import { HttpException } from '@/exceptions/HttpException';
 import { UserModel } from '@/server/models/user.model';
 import { AuthResponse, TokenPayload } from '@/types/auth/auth.types';
 import { SignInDTO, SignUpDto, UpdateUserDto } from '@/types/user/user.dto';
 import { User } from '@/types/user/user.types';
+import { isId } from '@/utils/util';
 
 import { signUserToken, validateToken } from '@/utils/auth.utils';
 

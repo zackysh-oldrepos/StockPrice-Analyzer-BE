@@ -7,10 +7,14 @@
   "scripts": {
     "start": "npm run build && cross-env NODE_ENV=production node dist/server.js",
     "dev": "cross-env NODE_ENV=development nodemon",
+    "py": "python -m flask run",
     "build": "tsc && npx tsc-alias",
     "deploy:prod": "npm run build"
   },
   "dependencies": {
+    "@types/express-fileupload": "^1.2.2",
+    "@types/multer": "^1.4.7",
+    "@types/node-fetch": "^2.6.1",
     "@types/nodemailer": "^6.4.4",
     "bcrypt": "^5.0.1",
     "chalk": "4.1.2",

@@ -9,6 +9,7 @@ export function _extractVErrorsMessage(errors: ValidationError[]): string {
 }
 
 export const validationMiddleware = (
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   type: any,
   value: 'body' | 'query' | 'params' | 'headers' = 'body',
   skipMissingProperties = false,

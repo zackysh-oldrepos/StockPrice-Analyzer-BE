@@ -1,6 +1,6 @@
 import { HttpException } from '@/exceptions/HttpException';
 import { UserModel } from '@/server/models/user.model';
-import { randomString } from '@/utils/util';
+import { randomString, _indev } from '@/utils/util';
 import { isEmail } from 'class-validator';
 import nodemailer, { SendMailOptions } from 'nodemailer';
 import { Service } from 'typedi';
@@ -52,7 +52,7 @@ export default class PasswordService {
       await transporter.sendMail(mailOptions);
     } catch (err) {
       console.error(err);
-      throw new HttpException(500, 'Email sending failed');
+      throw new HttpException(500, _indev() ? 'Email sending failed' : '');
     }
   }
 
